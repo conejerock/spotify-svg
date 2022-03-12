@@ -51,7 +51,7 @@ EXPRESS_SVG_PATH=current-spotify.svg
 * **SPOTIFY_CLIENT_ID** - Client ID provided by Spotify Application
 * **SPOTIFY_CLIENT_SECRET_ID** - Client Secret provided by Spotify Application
 * **EXPRESS_HOSTNAME** - Hostname where the server will be created *(default: localhost)*
-* **EXPRESS_PORT** - Port where the server will be created *(default: 8888)*
+* **EXPRESS_PORT** - Port where the server will be created *(default: 80)*
 * **EXPRESS_CALLBACK** - Redirect URI where Application Spotify redirect after authentication success *(default: callback)*
 * **EXPRESS_SVG_PATH** - URI to access your final SVG file *(default: current-spotify.svg)*
 
@@ -71,7 +71,7 @@ $ yarn start
 ```
 
 ## Demo
-![](http://localhost:8888/current-spotify.svg)
+![](http://localhost/current-spotify.svg)
 
 
 ## Contributing

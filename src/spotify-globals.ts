@@ -7,7 +7,8 @@ const SVG_SRC_FILE: string = "src.svg";
 const SVG_DST_FILE: string = "dst.svg";
 
 const EXPRESS_HOSTNAME: string = process.env.EXPRESS_HOSTNAME || "localhost";
-const EXPRESS_PORT: number = Number(process.env.EXPRESS_PORT) || 8888;
+const EXPRESS_PORT: number = Number(process.env.EXPRESS_PORT) || 80;
+const EXPRESS_CREATE_TOKEN_PORT: number = Number(process.env.EXPRESS_CREATE_TOKEN_PORT) || 8888;
 const EXPRESS_CALLBACK: string = process.env.EXPRESS_CALLBACK || "callback";
 const EXPRESS_SVG_PATH: string = process.env.EXPRESS_SVG_PATH || "current.svg";
 const EXPRESS_HOST: string = `http://${EXPRESS_HOSTNAME}${EXPRESS_PORT ? `:${EXPRESS_PORT}` : ""}`;
@@ -34,11 +35,11 @@ export {
   EXPRESS_CALLBACK,
   EXPRESS_SVG_PATH,
   SPOTIFY_LIST_SCOPES,
-  SPOTIFY_CALLBACK,
   URL_SVG,
   SpotifyApiInstance,
   TOKEN_NAME_FILE,
   CURRENT_SONG_NAME_FILE,
+  EXPRESS_CREATE_TOKEN_PORT,
   SVG_SRC_FILE,
   SVG_DST_FILE,
 };

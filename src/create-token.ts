@@ -1,8 +1,8 @@
 import express from "express";
 import { blue, bold, green, black, bgWhite, red } from "colorette";
-import { EXPRESS_CALLBACK, EXPRESS_PORT, SPOTIFY_LIST_SCOPES, SpotifyApiInstance } from "./spotify-globals";
+import { EXPRESS_CALLBACK, EXPRESS_CREATE_TOKEN_PORT, EXPRESS_PORT, SPOTIFY_LIST_SCOPES, SpotifyApiInstance } from "./spotify-globals";
 import SpotifyAuth from "./types/SpotifyAuth";
-import {saveAuth} from "./manage-info";
+import { saveAuth } from "./manage-info";
 
 const app = express();
 
@@ -30,7 +30,7 @@ app.get(`/${EXPRESS_CALLBACK}`, async (req, res) => {
   process.exit();
 });
 
-app.listen(EXPRESS_PORT, async () => {
+app.listen(EXPRESS_CREATE_TOKEN_PORT, async () => {
   const authorizeURL = await SpotifyApiInstance.createAuthorizeURL(SPOTIFY_LIST_SCOPES);
   console.log(blue(bold(`\n\nPlease, click in ${green("green")} link to save your Spotify refresh-token\n`)));
   console.log(green(bold(authorizeURL)));
