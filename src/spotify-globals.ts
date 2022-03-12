@@ -8,6 +8,7 @@ const SVG_DST_FILE: string = "dst.svg";
 
 const EXPRESS_HOSTNAME: string = process.env.EXPRESS_HOSTNAME || "localhost";
 const EXPRESS_PORT: number = Number(process.env.EXPRESS_PORT) || 80;
+
 const EXPRESS_CREATE_TOKEN_PORT: number = Number(process.env.EXPRESS_CREATE_TOKEN_PORT) || 8888;
 const EXPRESS_CALLBACK: string = process.env.EXPRESS_CALLBACK || "callback";
 const EXPRESS_SVG_PATH: string = process.env.EXPRESS_SVG_PATH || "current.svg";
@@ -16,7 +17,7 @@ const EXPRESS_HOST: string = `http://${EXPRESS_HOSTNAME}${EXPRESS_PORT ? `:${EXP
 const SPOTIFY_CLIENT_ID: string = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET_ID: string = process.env.SPOTIFY_CLIENT_SECRET_ID;
 const SPOTIFY_LIST_SCOPES: string[] = ["user-read-currently-playing"];
-const SPOTIFY_CALLBACK: string = `${EXPRESS_HOST}/${EXPRESS_CALLBACK}`;
+const SPOTIFY_CALLBACK: string = `${EXPRESS_HOST}:${EXPRESS_CREATE_TOKEN_PORT}/${EXPRESS_CALLBACK}`;
 
 if(!SPOTIFY_CLIENT_ID || !SPOTIFY_CLIENT_SECRET_ID) {
   throw new Error("SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET_ID are mandatory in .env file")
