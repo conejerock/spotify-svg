@@ -32,7 +32,7 @@ To install and set up the library, run:
 $ yarn install
 ```
 
-##Configuration
+## Configuration
 
 At first, you must to create an **Application** as a [Spotify developer](https://developer.spotify.com/dashboard/applications).
 
