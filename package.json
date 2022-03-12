@@ -6,7 +6,7 @@
   "scripts": {
     "start": "yarn build && node dist/index.js",
     "build": "tsc && yarn copy",
-    "copy": "copyfiles svg/src.svg dist && cp dist/svg/src.svg dist/svg/dst.svg",
+    "copy": "copyfiles svg/src.svg dist && cp dist/svg/src.svg dist/svg/dst.svg && cp ./tokens.json dist/tokens.json 2>/dev/null || :",
     "create-token": "tsc && node dist/create-token.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
