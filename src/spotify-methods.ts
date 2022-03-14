@@ -24,7 +24,7 @@ export const spotifyUpdateTokens = async (spotifyAuth: SpotifyAuth): Promise<voi
       SpotifyApiInstance.setAccessToken(data.body["access_token"]);
       saveAuth({
         accessToken: data.body["access_token"],
-        refreshToken: SpotifyApiInstance.getRefreshToken(),
+        refreshToken: data.body["refresh_token"] ? data.body["refresh_token"] : SpotifyApiInstance.getRefreshToken(),
       });
     });
   } catch (e) {
