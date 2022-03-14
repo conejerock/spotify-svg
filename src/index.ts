@@ -9,12 +9,16 @@ import express from "express";
 import { spotifyCurrentSong, spotifyUpdateTokens } from "./spotify-methods";
 
 const main = async (): Promise<void> => {
-  const spotifyAuth: SpotifyAuth = await loadAuth();
-  await spotifyUpdateTokens(spotifyAuth);
-  const currentSongTrack: SpotifyCurrentTrack | undefined = await spotifyCurrentSong();
-  if (currentSongTrack?.currently_playing_type === "track") {
-    saveInfo(currentSongTrack);
-    saveSvg(currentSongTrack);
+  try {
+    const spotifyAuth: SpotifyAuth = await loadAuth();
+    await spotifyUpdateTokens(spotifyAuth);
+    const currentSongTrack: SpotifyCurrentTrack | undefined = await spotifyCurrentSong();
+    if (currentSongTrack?.currently_playing_type === "track") {
+      saveInfo(currentSongTrack);
+      saveSvg(currentSongTrack);
+    }
+  } catch (e) {
+    console.log(e.message);
   }
 };
 
@@ -40,10 +44,6 @@ app.get(`/${EXPRESS_SVG_PATH}`, (req, res) => {
 });
 
 app.listen(EXPRESS_PORT, async () => {
-  try {
-    console.log(green(`\n[Spotify-SVG]: Your SVG file is in: ${bold(`${URL_SVG}`)}\n`));
-    daemon = await startDaemon();
-  } catch (e) {
-    console.log(e.message);
-  }
+  console.log(green(`\n[Spotify-SVG]: Your SVG file is in: ${bold(`${URL_SVG}`)}\n`));
+  daemon = await startDaemon();
 });
