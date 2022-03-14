@@ -71,7 +71,7 @@ $ yarn start
 ```
 
 ## Demo
-![](http://localhost/current-spotify.svg)
+![](http://spotify-svg.juanjoconejero.com:80/current-spotify.svg)
 
 
 ## Contributing
